@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Belajar Jquery Validation</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="jquery.min.js"></script>
+  <script src="jquery-validation-1.19.3/dist/jquery.validate.min.js"></script>
+</head>
+
+<body>
+  <h1>Belajar Jquery Validation</h1>
+
+  <form action="" id="daftar" method="post">
+    <p>
+      <label for="nama">Nama</label>
+      <input type="text" name="nama" id="nama">
+    </p>
+    <p>
+      <label for="jk">Jenis Kelamin</label>
+      <input type="text" name="jk" id="jk">
+    </p>
+    <p>
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email">
+    </p>
+
+    <button class="submit" type="submit">Kirim</button>
+  </form>
+
+  <script type="text/javascript">
+    $("#daftar").validate({
+      rules: {
+        nama: "required",
+        jk: "required",
+        email:
+        {
+          required: true,
+          email: true,
+        },
+      },
+      messages: {
+        nama: "<span style='color:red'>Wajib diisi</span>",
+        jk: "<span style='color:red'>Wajib diisi</span>",
+        email:
+        {
+          required: "<span style='color:red'>Wajib diisi</span>",
+          email: "<span style='color:red'>Format email salah</span>",
+        },
+      },
+      errorElement: "span",
+    })
+  </script>
+</body>
+
+</html>
